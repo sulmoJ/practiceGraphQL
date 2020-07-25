@@ -1,52 +1,58 @@
-export const people = [
+let Movies = [
   {
     id: 1,
     name: "sulmoJ",
-    gender: "male",
-    age: 24,
+    score: 21,
   },
   {
     id: 2,
-    name: "sulmoK",
-    gender: "male",
-    age: 24,
+    name: "hanulLee",
+    score: 20,
   },
   {
     id: 3,
-    name: "hanulLee",
-    gender: "male",
-    age: 24,
+    name: "chanwooLee",
+    score: 25,
   },
   {
     id: 4,
-    name: "chanwooLee",
-    gender: "male",
-    age: 24,
+    name: "dongyuLim",
+    score: 24,
   },
   {
     id: 5,
-    name: "dongyuLim",
-    gender: "male",
-    age: 24,
-  },
-  {
-    id: 6,
     name: "yongheeLee",
-    gender: "male",
-    age: 24,
-  },
-  {
-    id: 7,
-    name: "omlusJ",
-    gender: "male",
-    age: 24,
+    score: 99,
   },
 ];
 
+export const getMovies = () => Movies;
+
 export const getbyId = (id) => {
-  const filteredPeople = people.filter((person) => person.id == id);
-  return filteredPeople[0];
+  const filteredMovies = Movies.filter((movie) => movie.id == id);
+  return filteredMovies[0];
 };
+
+export const deleteMovie = (id) => {
+  const cleanMovies = Movies.filter((movie) => id === movie.id);
+  if (Movies.length > cleanMovies.length) {
+    Movies = cleanMovies;
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export const addMovie = (name, score) => {
+  const newMoive = {
+    id: `${Movies.length + 1}`, 
+    name,
+    score,
+  };
+  Movies.push(newMoive);
+  return newMoive;
+};
+
 // export const getbyId = (id) => {
 //     let re;
 //     people.forEach((p) => {

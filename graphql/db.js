@@ -34,7 +34,7 @@ export const getbyId = (id) => {
 };
 
 export const deleteMovie = (id) => {
-  const cleanMovies = Movies.filter((movie) => id === movie.id);
+  const cleanMovies = Movies.filter((movie) => id != movie.id);
   if (Movies.length > cleanMovies.length) {
     Movies = cleanMovies;
     return true;
@@ -45,7 +45,7 @@ export const deleteMovie = (id) => {
 
 export const addMovie = (name, score) => {
   const newMoive = {
-    id: `${Movies.length + 1}`, 
+    id: `${Movies.length + 1}`,
     name,
     score,
   };
